@@ -1,0 +1,47 @@
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.csproj.AssemblyReference.cache
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.GeneratedMSBuildEditorConfig.editorconfig
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.AssemblyInfoInputs.cache
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.AssemblyInfo.cs
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.csproj.CoreCompileInputs.cache
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.exe
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.deps.json
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.runtimeconfig.json
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.runtimeconfig.dev.json
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.dll
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.pdb
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.dll
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.pdb
+D:\Jônatas\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.genruntimeconfig.cache
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.csproj.AssemblyReference.cache
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.GeneratedMSBuildEditorConfig.editorconfig
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.AssemblyInfoInputs.cache
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.AssemblyInfo.cs
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.csproj.CoreCompileInputs.cache
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.pdb
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.exe
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.deps.json
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.runtimeconfig.json
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.runtimeconfig.dev.json
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.pdb
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.genruntimeconfig.cache
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\obj\Debug\netcoreapp3.1\5.1-Desafio do curso.csproj.CopyComplete
+D:\Jônatas - SAP\DEV\ESTUDOS\CURSOS - LINKEDIN\C#\C_Sharp_Basico_Linkedin_Thaise_Medeiros\5.1-Desafio do curso\bin\Debug\netcoreapp3.1\5.1-Desafio do curso.dll.config

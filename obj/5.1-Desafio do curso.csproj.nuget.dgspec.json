@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Jônatas - SAP\\DEV\\ESTUDOS\\CURSOS - LINKEDIN\\C#\\C_Sharp_Basico_Linkedin_Thaise_Medeiros\\5.1-Desafio do curso\\5.1-Desafio do curso.csproj": {}
+  },
+  "projects": {
+    "D:\\Jônatas - SAP\\DEV\\ESTUDOS\\CURSOS - LINKEDIN\\C#\\C_Sharp_Basico_Linkedin_Thaise_Medeiros\\5.1-Desafio do curso\\5.1-Desafio do curso.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Jônatas - SAP\\DEV\\ESTUDOS\\CURSOS - LINKEDIN\\C#\\C_Sharp_Basico_Linkedin_Thaise_Medeiros\\5.1-Desafio do curso\\5.1-Desafio do curso.csproj",
+        "projectName": "5.1-Desafio do curso",
+        "projectPath": "D:\\Jônatas - SAP\\DEV\\ESTUDOS\\CURSOS - LINKEDIN\\C#\\C_Sharp_Basico_Linkedin_Thaise_Medeiros\\5.1-Desafio do curso\\5.1-Desafio do curso.csproj",
+        "packagesPath": "C:\\Users\\Ramo\\.nuget\\packages\\",
+        "outputPath": "D:\\Jônatas - SAP\\DEV\\ESTUDOS\\CURSOS - LINKEDIN\\C#\\C_Sharp_Basico_Linkedin_Thaise_Medeiros\\5.1-Desafio do curso\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ramo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.32, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
