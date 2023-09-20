@@ -17,6 +17,8 @@ using _5._1_Desafio_do_curso.Entities;
 using _5._1_Desafio_do_curso.Entities.Enums;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using _5._1_Desafio_do_curso.Data;
+using _5._1_Desafio_do_curso.Entities.Exceptions;
 
 namespace _5._1_Desafio_do_curso
 {
@@ -36,14 +38,28 @@ namespace _5._1_Desafio_do_curso
 
         static void Main(string[] args)
         {
+            using (var dbContext = new AppDbContext())
+            {
+                //// Faça operações de banco de dados usando o contexto aqui
+                //var produto = new Produto
+                //{
+                //    Nome = "Exemplo",
+                //    Preco = 9.99m
+                //};
+
+                //dbContext.Produtos.Add(produto);
+                dbContext.SaveChanges();
+            }
+
             Login();
         }
 
         /// <summary>
         /// Método responsável pelo processo de cadastro inicial e login
         /// </summary>
-        static void Login()
+        public static void Login()
         {
+
             Console.Clear();
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
@@ -53,25 +69,49 @@ namespace _5._1_Desafio_do_curso
             Console.WriteLine();
             Console.Write(" Para começarmos informe por gentileza o seu CPF ou CNPJ, digite apenas os números: ");
             CpfCnpj = Console.ReadLine();
-            bool validacao = Clientes.ValidaCpfCnpj(CpfCnpj);
+            bool validacao = false;
+            try
+            {
+                validacao = Clientes.ValidaCpfCnpj(ProCpfCnpj);
+            }
+            catch (DomainException e)
+            {
+                Console.WriteLine();
+                Console.WriteLine(" AppError: " + e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine();
+                Console.WriteLine(" SystemError: " + e.Message);
+            }
 
-            Console.Clear();
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine();
+            //Console.Clear();
+            //Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            //Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            //Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+            //Console.WriteLine();
 
 
             while (!validacao)
             {
-
-                Console.WriteLine(" O CPF ou CNPJ digitado não é valido, tente novamente!");
                 Console.WriteLine();
                 Console.Write(" Informe somente os números do seu CPF ou CNPJ: ");
                 CpfCnpj = Console.ReadLine();
-                validacao = Clientes.ValidaCpfCnpj(CpfCnpj);
+                try
+                {
+                    validacao = Clientes.ValidaCpfCnpj(CpfCnpj);
+                }
+                catch (DomainException e)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(" AppError: " + e.Message);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(" SystemError: " + e.Message);
+                }
 
-                Console.WriteLine();
             }
 
             bool registro;
@@ -316,13 +356,12 @@ namespace _5._1_Desafio_do_curso
                 Menu();
             }
 
-
         }
 
         /// <summary>
         /// Método responsável pelo menu principal e direcionamento conforme opções selecionadas
         /// </summary>
-        static void Menu()
+        public static void Menu()
         {
             if (TipClient == TipoCliente.PF)
             {
@@ -635,8 +674,8 @@ namespace _5._1_Desafio_do_curso
                     Console.WriteLine();
 
                     Console.Write(" Informe o valor do depósito: R$ ");
-                    bool validaVal = double.TryParse(Console.ReadLine(),NumberStyles.AllowDecimalPoint,CultureInfo.InvariantCulture, out valor);
-                    while(!validaVal)
+                    bool validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
+                    while (!validaVal)
                     {
                         Console.WriteLine();
                         Console.WriteLine(" VALOR INVÁLIDO!");
@@ -820,6 +859,9 @@ namespace _5._1_Desafio_do_curso
             }
         }
 
+        /// <summary>
+        /// Método responsável por realizar saques na conta
+        /// </summary>
         static void Saque()
         {
             double saldoConta;
@@ -858,7 +900,7 @@ namespace _5._1_Desafio_do_curso
                     }
                     Console.WriteLine("------------------------------------------------------- Saque -------------------------------------------------------");
                     Console.WriteLine();
-                    Console.WriteLine($" No momento não é possível realizar saques em sua conta pois o saldo é de R$ {saldoConta.ToString("F2",CultureInfo.InvariantCulture)}!");
+                    Console.WriteLine($" No momento não é possível realizar saques em sua conta pois o saldo é de R$ {saldoConta.ToString("F2", CultureInfo.InvariantCulture)}!");
                     Console.WriteLine();
                     Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                     Console.WriteLine();
@@ -948,7 +990,7 @@ namespace _5._1_Desafio_do_curso
                             validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
                         }
                     }
-                    while((saldoConta - valor - ContaPF.Taxa) < 0)
+                    while ((saldoConta - valor - ContaPF.Taxa) < 0)
                     {
                         Console.WriteLine();
                         Console.WriteLine(" Você informou um valor de saque que fará sua conta ficar com saldo negativo, tente novamente!");
@@ -1115,7 +1157,7 @@ namespace _5._1_Desafio_do_curso
                     Console.WriteLine();
                     Console.WriteLine($" Caro cliente, sua conta é do tipo pessoa jurídica e possui uma taxa de R$ {ContaPJ.Taxa.ToString("F2", CultureInfo.InvariantCulture)} para cada saque realizado!");
                     Console.WriteLine();
-                    Console.WriteLine($" SALDO DA CONTA: R$ {saldoConta.ToString("F2",CultureInfo.InvariantCulture)}");
+                    Console.WriteLine($" SALDO DA CONTA: R$ {saldoConta.ToString("F2", CultureInfo.InvariantCulture)}");
                     Console.WriteLine();
                     Console.Write(" Informe o valor do saque: R$ ");
                     bool validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
@@ -1143,7 +1185,7 @@ namespace _5._1_Desafio_do_curso
                             validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
                         }
                     }
-              
+
                     while ((saldoConta - valor - ContaPJ.Taxa) < 0)
                     {
                         Console.WriteLine();
@@ -1219,7 +1261,7 @@ namespace _5._1_Desafio_do_curso
 
         #region [Métodos Auxiliares]
 
-        static void PartDay()
+        public static void PartDay()
         {
             int hora = DateTime.Now.Hour;
             DateTime dateTime = DateTime.Now;

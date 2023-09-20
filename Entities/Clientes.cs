@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using _5._1_Desafio_do_curso.Entities.Enums;
+using _5._1_Desafio_do_curso.Entities.Exceptions;
 
 namespace _5._1_Desafio_do_curso.Entities
 {
@@ -43,14 +44,14 @@ namespace _5._1_Desafio_do_curso.Entities
 
             if (!soNumeros)
             {
-                return false;
+                throw new DomainException("O CPF ou CNPJ informado não possui somente números!");
             }
 
             int tamanho = cpf_cnpj.Length;
 
             if (tamanho != 11 && tamanho != 14)
             {
-                return false;
+                throw new DomainException("O CPF ou CNPJ informado não possui a quantidade correta de dígitos, sendo 11 para CPF ou 14 para CNPJ!");
             }
 
             TipoCliente tipoCliente = ClassificaCliente(cpf_cnpj);
@@ -114,7 +115,7 @@ namespace _5._1_Desafio_do_curso.Entities
 
                 if (cpf_cnpj.Substring(9, 2) != dvCpf)
                 {
-                    return false;
+                    throw new DomainException("O CPF informado é inválido!");
                 }
 
                 #endregion Validações de CPF
@@ -159,7 +160,7 @@ namespace _5._1_Desafio_do_curso.Entities
 
                 if (cpf_cnpj.Substring(12, 2) != dvCnpj)
                 {
-                    return false;
+                    throw new DomainException("O CNPJ informado é inválido!");
                 }
 
                 #endregion Validações de CNPJ
