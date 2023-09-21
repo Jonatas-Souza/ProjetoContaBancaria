@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Drawing;
+using System.Globalization;
 using _5._1_Desafio_do_curso.Entities.Enums;
+using _5._1_Desafio_do_curso.Entities.Exceptions;
 
 namespace _5._1_Desafio_do_curso.Entities
 {
@@ -34,6 +37,23 @@ namespace _5._1_Desafio_do_curso.Entities
         {
             base.SaqueConta(valor);
             Saldo -= Taxa;
+        }
+
+        public double ValidaValor(string v1)
+        {
+            double v2 = 0;
+
+            if(!double.TryParse(v1, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out v2))
+            {
+                throw new DomainException("Valor inválido!");
+            }
+
+            if (v2 <= Taxa)
+            {
+                throw new DomainException("Valor informado menor ou igual a taxa cobrada por depósito!");
+            }
+
+            return v2;
         }
 
 

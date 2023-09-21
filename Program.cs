@@ -72,7 +72,7 @@ namespace _5._1_Desafio_do_curso
             bool validacao = false;
             try
             {
-                validacao = Clientes.ValidaCpfCnpj(ProCpfCnpj);
+                validacao = Clientes.ValidaCpfCnpj(CpfCnpj);
             }
             catch (DomainException e)
             {
@@ -84,12 +84,6 @@ namespace _5._1_Desafio_do_curso
                 Console.WriteLine();
                 Console.WriteLine(" SystemError: " + e.Message);
             }
-
-            //Console.Clear();
-            //Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            //Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            //Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-            //Console.WriteLine();
 
 
             while (!validacao)
@@ -309,6 +303,12 @@ namespace _5._1_Desafio_do_curso
             }
             else
             {
+                Console.Clear();
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine();
+
                 PartDay();
                 Console.WriteLine();
 
@@ -645,60 +645,60 @@ namespace _5._1_Desafio_do_curso
                 string novoDeposito = "S";
                 while (novoDeposito.ToUpper() == "S")
                 {
+                    valor = 0;
                     Console.Clear();
                     Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                     Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
                     Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                     Console.WriteLine();
-                    if (TipClient == TipoCliente.PF)
-                    {
-                        string cpfCnpjFormatado = CpfCnpj.Substring(0, 3) + '.' + CpfCnpj.Substring(3, 3) + '.' + CpfCnpj.Substring(6, 3) + '-' + CpfCnpj.Substring(9, 2);
-                        string nome = listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].Nome;
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine();
-                    }
-                    else
-                    {
-                        string cpfCnpjFormatado = CpfCnpj.Substring(0, 2) + '.' + CpfCnpj.Substring(2, 3) + '.' + CpfCnpj.Substring(5, 3) + '/' + CpfCnpj.Substring(8, 4) + '-' + CpfCnpj.Substring(12, 2);
-                        string nome = listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].Nome;
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine();
-                    }
+
+                    string cpfCnpjFormatado = CpfCnpj.Substring(0, 3) + '.' + CpfCnpj.Substring(3, 3) + '.' + CpfCnpj.Substring(6, 3) + '-' + CpfCnpj.Substring(9, 2);
+                    string nome = listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].Nome;
+                    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                    Console.WriteLine($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
+                    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                    Console.WriteLine();
+
                     Console.WriteLine("------------------------------------------------------- Depósito -------------------------------------------------------");
                     Console.WriteLine();
                     Console.WriteLine($" Caro cliente, sua conta é do tipo pessoa físisa e possui uma taxa de R$ {ContaPF.Taxa.ToString("F2", CultureInfo.InvariantCulture)} para cada depósito realizado!");
                     Console.WriteLine();
 
                     Console.Write(" Informe o valor do depósito: R$ ");
-                    bool validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
-                    while (!validaVal)
+                    try
                     {
-                        Console.WriteLine();
-                        Console.WriteLine(" VALOR INVÁLIDO!");
-                        Console.WriteLine();
-                        Console.Write(" Informe o valor do depósito: R$ ");
-                        validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
+                        valor = listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].ValidaValor(Console.ReadLine());
                     }
-                    while (valor <= ContaPF.Taxa)
+                    catch (DomainException e)
                     {
                         Console.WriteLine();
-                        Console.WriteLine(" Você informou um valor de depósito menor ou igual a taxa cobraba por depósito, tente novamente!");
+                        Console.WriteLine(" AppError: " + e.Message);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(" SystemError: " + e.Message);
+                    }
+                    while (valor == 0)
+                    {
                         Console.WriteLine();
                         Console.Write(" Informe o valor do depósito: R$ ");
-                        validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
-                        while (!validaVal)
+                        try
+                        {
+                            valor = listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].ValidaValor(Console.ReadLine());
+                        }
+                        catch (DomainException e)
                         {
                             Console.WriteLine();
-                            Console.WriteLine(" VALOR INVÁLIDO!");
+                            Console.WriteLine(" AppError: " + e.Message);
+                        }
+                        catch (Exception e)
+                        {
                             Console.WriteLine();
-                            Console.Write(" Informe o valor do depósito: R$ ");
-                            validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
+                            Console.WriteLine(" SystemError: " + e.Message);
                         }
                     }
+                   
                     dateTime = DateTime.Now;
                     listaMovimentacoesPF.Add(new ExtratoPF(CpfCnpj, dateTime, valor, TipoTransacao.Deposito));
                     listaMovimentacoesPF.Add(new ExtratoPF(CpfCnpj, dateTime, -ContaPF.Taxa, TipoTransacao.Tarifa));
@@ -754,60 +754,60 @@ namespace _5._1_Desafio_do_curso
                 string novoDeposito = "S";
                 while (novoDeposito.ToUpper() == "S")
                 {
+                    valor = 0;
                     Console.Clear();
                     Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                     Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
                     Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                     Console.WriteLine();
-                    if (TipClient == TipoCliente.PF)
-                    {
-                        string cpfCnpjFormatado = CpfCnpj.Substring(0, 3) + '.' + CpfCnpj.Substring(3, 3) + '.' + CpfCnpj.Substring(6, 3) + '-' + CpfCnpj.Substring(9, 2);
-                        string nome = listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].Nome;
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine();
-                    }
-                    else
-                    {
-                        string cpfCnpjFormatado = CpfCnpj.Substring(0, 2) + '.' + CpfCnpj.Substring(2, 3) + '.' + CpfCnpj.Substring(5, 3) + '/' + CpfCnpj.Substring(8, 4) + '-' + CpfCnpj.Substring(12, 2);
-                        string nome = listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].Nome;
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
-                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                        Console.WriteLine();
-                    }
+
+                    string cpfCnpjFormatado = CpfCnpj.Substring(0, 2) + '.' + CpfCnpj.Substring(2, 3) + '.' + CpfCnpj.Substring(5, 3) + '/' + CpfCnpj.Substring(8, 4) + '-' + CpfCnpj.Substring(12, 2);
+                    string nome = listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].Nome;
+                    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                    Console.WriteLine($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
+                    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                    Console.WriteLine();
+
                     Console.WriteLine("------------------------------------------------------- Depósito -------------------------------------------------------");
                     Console.WriteLine();
                     Console.WriteLine($" Caro cliente, sua conta é do tipo pessoa jurídica e possui uma taxa de R$ {ContaPJ.Taxa.ToString("F2", CultureInfo.InvariantCulture)} para cada depósito realizado!");
                     Console.WriteLine();
 
                     Console.Write(" Informe o valor do depósito: R$ ");
-                    bool validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
-                    while (!validaVal)
+                    try
                     {
-                        Console.WriteLine();
-                        Console.WriteLine(" VALOR INVÁLIDO!");
-                        Console.WriteLine();
-                        Console.Write(" Informe o valor do depósito: R$ ");
-                        validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
+                        valor = listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].ValidaValor(Console.ReadLine());
                     }
-                    while (valor <= ContaPJ.Taxa)
+                    catch (DomainException e)
                     {
                         Console.WriteLine();
-                        Console.WriteLine(" Você informou um valor de depósito menor ou igual a taxa cobraba por depósito, tente novamente!");
+                        Console.WriteLine(" AppError: " + e.Message);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(" SystemError: " + e.Message);
+                    }
+                    while (valor == 0)
+                    {
                         Console.WriteLine();
                         Console.Write(" Informe o valor do depósito: R$ ");
-                        validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
-                        while (!validaVal)
+                        try
+                        {
+                            valor = listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].ValidaValor(Console.ReadLine());
+                        }
+                        catch (DomainException e)
                         {
                             Console.WriteLine();
-                            Console.WriteLine(" VALOR INVÁLIDO!");
+                            Console.WriteLine(" AppError: " + e.Message);
+                        }
+                        catch (Exception e)
+                        {
                             Console.WriteLine();
-                            Console.Write(" Informe o valor do depósito: R$ ");
-                            validaVal = double.TryParse(Console.ReadLine(), NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out valor);
+                            Console.WriteLine(" SystemError: " + e.Message);
                         }
                     }
+
                     dateTime = DateTime.Now;
                     listaMovimentacoesPJ.Add(new ExtratoPJ(CpfCnpj, dateTime, valor, TipoTransacao.Deposito));
                     listaMovimentacoesPJ.Add(new ExtratoPJ(CpfCnpj, dateTime, -ContaPJ.Taxa, TipoTransacao.Tarifa));
