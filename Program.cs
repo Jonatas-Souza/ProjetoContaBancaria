@@ -19,6 +19,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using _5._1_Desafio_do_curso.Data;
 using _5._1_Desafio_do_curso.Entities.Exceptions;
+using System.IO;
 
 namespace _5._1_Desafio_do_curso
 {
@@ -432,7 +433,7 @@ namespace _5._1_Desafio_do_curso
         /// <summary>
         /// Método responsável por demonstrar as transações da conta
         /// </summary>
-        static void Extrato()
+        public static void Extrato()
         {
             Console.Clear();
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
@@ -515,6 +516,66 @@ namespace _5._1_Desafio_do_curso
                 Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine($"                                             SALDO DA CONTA: R$ {listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].Saldo.ToString("F2", CultureInfo.InvariantCulture)}");
                 Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine();
+                Console.Write($@" Se deseja gerar um arquivo .TXT com as transações acima do seu extrato digite ""S"" para sim, ou ""N"" para não: ");
+                opcao = Console.ReadLine();
+                Console.WriteLine();
+                while (opcao.ToUpper() != "N" && opcao.ToUpper() != "S")
+                {
+                    Console.Write($@" Opção inválida, digite ""S"" ou ""N"": ");
+                    opcao = Console.ReadLine();
+                    Console.WriteLine();
+                }
+                if (opcao.ToUpper() == "S")
+                {
+                    try
+                    {
+                        string filePath = "D:\\Jônatas - SAP\\DEV\\ESTUDOS\\CURSOS - LINKEDIN\\C#\\C_Sharp_Basico_Linkedin_Thaise_Medeiros\\5.1-Desafio do curso\\AccoutnsFiles";
+                        string fileName = $"Account_Transactions_{CpfCnpj}_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt";
+                        string fullFilePath = filePath + "\\" + fileName;
+                        
+                        List<string> fileLines = new List<string>();
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("");
+                        string cpfCnpjFormatado = CpfCnpj.Substring(0, 3) + '.' + CpfCnpj.Substring(3, 3) + '.' + CpfCnpj.Substring(6, 3) + '-' + CpfCnpj.Substring(9, 2);
+                        string nome = listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].Nome;
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("");
+                        fileLines.Add("------------------------------------------------------- Extrato -------------------------------------------------------");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("                            |            DATA            |     |    VALOR    |     |    TIPO DE TRANSAÇÃO    |");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        foreach (ExtratoPF extratoPF in listaMovimentacoesPF)
+                        {
+                            if (extratoPF.Cpf == CpfCnpj)
+                            {
+                                fileLines.Add($"                                  {extratoPF.DateTime}             R$ {extratoPF.Valor.ToString("F2", CultureInfo.InvariantCulture)}                   {extratoPF.TipoOp}");
+                            }
+
+                        }
+                        fileLines.Add("");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add($"                                             SALDO DA CONTA: R$ {listaContaPF[listaContaPF.FindIndex(x => x.Cpf == CpfCnpj)].Saldo.ToString("F2", CultureInfo.InvariantCulture)}");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("");
+
+                        File.AppendAllLines(fullFilePath, fileLines);
+
+                        Console.WriteLine($"O arquivo {fileName} foi gerado com sucesso no diretório: {filePath}");
+
+                        Console.WriteLine();
+
+                    }
+                    catch (IOException e)
+                    {
+                        Console.WriteLine("Erro na geração do arquivo:");
+                        Console.WriteLine(e.Message);
+                    }
+                }
                 Console.WriteLine();
                 Console.Write(@" Para retornar ao menu principal digite ""1"", para sair digite ""2"": ");
                 opcao = Console.ReadLine();
@@ -600,42 +661,99 @@ namespace _5._1_Desafio_do_curso
                 Console.WriteLine($"                                             SALDO DA CONTA: R$ {listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].Saldo.ToString("F2", CultureInfo.InvariantCulture)}");
                 Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine();
-                Console.Write(@" Para retornar ao menu principal digite ""1"", para sair digite ""2"": ");
+                Console.Write($@" Se deseja gerar um arquivo .TXT com as transações acima do seu extrato digite ""S"" para sim, ou ""N"" para não: ");
                 opcao = Console.ReadLine();
-                soNumeros = Regex.IsMatch(opcao, "^[0-9]+$");
-
-                while (!soNumeros || !(int.Parse(opcao) >= 1 && int.Parse(opcao) <= 2))
+                Console.WriteLine();
+                while (opcao.ToUpper() != "N" && opcao.ToUpper() != "S")
                 {
+                    Console.Write($@" Opção inválida, digite ""S"" ou ""N"": ");
+                    opcao = Console.ReadLine();
                     Console.WriteLine();
-                    Console.WriteLine(" OPÇÃO INVÁLIDA!");
-                    Console.WriteLine();
+                }
+                if (opcao.ToUpper() == "S")
+                {
+                    try
+                    {
+                        string filePath = "D:\\Jônatas - SAP\\DEV\\ESTUDOS\\CURSOS - LINKEDIN\\C#\\C_Sharp_Basico_Linkedin_Thaise_Medeiros\\5.1-Desafio do curso\\AccoutnsFiles";
+                        string fileName = $"Account_Transactions_{CpfCnpj}_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt";
+                        string fullFilePath = filePath + "\\" + fileName;
+                       
+                        List<string> fileLines = new List<string>();
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("");
+                        string cpfCnpjFormatado = CpfCnpj.Substring(0, 2) + '.' + CpfCnpj.Substring(2, 3) + '.' + CpfCnpj.Substring(5, 3) + '/' + CpfCnpj.Substring(8, 4) + '-' + CpfCnpj.Substring(12, 2);
+                        string nome = listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].Nome;
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add($"                     CONTA: {cpfCnpjFormatado}                 CLIENTE: {nome}");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("");
+                        fileLines.Add("------------------------------------------------------- Extrato -------------------------------------------------------");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("                            |            DATA            |     |    VALOR    |     |    TIPO DE TRANSAÇÃO    |");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        foreach (ExtratoPJ extratoPJ in listaMovimentacoesPJ)
+                        {
+                            if (extratoPJ.Cnpj == CpfCnpj)
+                            {
+                                fileLines.Add($"                                  {extratoPJ.DateTime}             R$ {extratoPJ.Valor.ToString("F2", CultureInfo.InvariantCulture)}                   {extratoPJ.TipoOp}");
+                            }
+
+                        }
+                        fileLines.Add("");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add($"                                             SALDO DA CONTA: R$ {listaContaPJ[listaContaPJ.FindIndex(x => x.Cnpj == CpfCnpj)].Saldo.ToString("F2", CultureInfo.InvariantCulture)}");
+                        fileLines.Add("------------------------------------------------------------------------------------------------------------------------");
+                        fileLines.Add("");
+
+                        File.AppendAllLines(fullFilePath, fileLines);
+
+                        Console.WriteLine($"O arquivo {fileName} foi gerado com sucesso no diretório: {filePath}");
+
+                        Console.WriteLine();
+
+                    }
+                    catch (IOException e)
+                    {
+                        Console.WriteLine("Erro na geração do arquivo:");
+                        Console.WriteLine(e.Message);
+                    }
                     Console.Write(@" Para retornar ao menu principal digite ""1"", para sair digite ""2"": ");
                     opcao = Console.ReadLine();
                     soNumeros = Regex.IsMatch(opcao, "^[0-9]+$");
+
+                    while (!soNumeros || !(int.Parse(opcao) >= 1 && int.Parse(opcao) <= 2))
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(" OPÇÃO INVÁLIDA!");
+                        Console.WriteLine();
+                        Console.Write(@" Para retornar ao menu principal digite ""1"", para sair digite ""2"": ");
+                        opcao = Console.ReadLine();
+                        soNumeros = Regex.IsMatch(opcao, "^[0-9]+$");
+                    }
+
+                    if (int.Parse(opcao) == 1)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+                        Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+                        Console.WriteLine();
+                        Menu();
+                    }
+                    else
+                    {
+                        Login();
+                    }
                 }
 
-                if (int.Parse(opcao) == 1)
-                {
-                    Console.Clear();
-                    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                    Console.WriteLine("     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$          INTERNATIONAL BANK          $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
-                    Console.WriteLine();
-                    Menu();
-                }
-                else
-                {
-                    Login();
-                }
             }
-
-
         }
-
         /// <summary>
         /// Método responsável por realizar depósitos na conta
         /// </summary>
-        static void Deposito()
+        public static void Deposito()
         {
 
             double valor;
@@ -698,7 +816,7 @@ namespace _5._1_Desafio_do_curso
                             Console.WriteLine(" SystemError: " + e.Message);
                         }
                     }
-                   
+
                     dateTime = DateTime.Now;
                     listaMovimentacoesPF.Add(new ExtratoPF(CpfCnpj, dateTime, valor, TipoTransacao.Deposito));
                     listaMovimentacoesPF.Add(new ExtratoPF(CpfCnpj, dateTime, -ContaPF.Taxa, TipoTransacao.Tarifa));
@@ -1351,6 +1469,6 @@ namespace _5._1_Desafio_do_curso
 
         #endregion Métodos Auxiliares
 
-    }
 
+    }
 }
